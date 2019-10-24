@@ -1,0 +1,14 @@
+[Unit]
+Description=Level 2 Tunnel Protocol Daemon (L2TP)
+After=syslog.target network.target
+After=ipsec.service
+
+[Service]
+Type=simple
+PIDFile=/run/xl2tpd/xl2tpd.pid
+ExecStart=/usr/bin/xl2tpd -D
+RuntimeDirectory=xl2tpd
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
